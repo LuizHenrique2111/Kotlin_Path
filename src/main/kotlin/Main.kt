@@ -1,11 +1,16 @@
 fun main() {
 
-    val articuno = Pokemons("Articuno", "Gelo", 50)
+    val oldInt = 10
+    var newInt = oldInt.plus(18)
+    println(newInt)
 
-    println(articuno.printPokemon())
+    newInt = newInt.minus(2)
+    println(newInt)
 
-    val infernape = Pokemons("Infernape")
+    newInt = newInt.div(2)
+    println(newInt)
 
-    println(infernape.printPokemon())
+    newInt = newInt.or(35)
+    println(newInt)
 
 }
