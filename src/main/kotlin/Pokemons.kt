@@ -1,8 +1,8 @@
-class Pokemons {
+class Pokemons(var name: String, var tipe: String, var level: Int) {
 
-    var name: String = ""
-    var tipe: String = ""
-    var level: Int = 0
+    constructor(name: String) : this(name, "Fogo", 85) {
+        println("c2")
+    }
 
     fun updateName(newName: String) {
         name = newName

@@ -1,11 +1,11 @@
 fun main() {
 
-    val pikachu = Pokemons()
+    val articuno = Pokemons("Articuno", "Gelo", 50)
 
-    pikachu.name = "Pikachu"
-    pikachu.tipe = "Eletrico"
-    pikachu.level = 35
+    println(articuno.printPokemon())
 
-    println(pikachu.printPokemon())
+    val infernape = Pokemons("Infernape")
+
+    println(infernape.printPokemon())
 
 }
