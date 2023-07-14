@@ -1,5 +1,7 @@
 class Hero(var name: String, var power: String) {
 
+    private val MAX_HEROS = 15
+
     init {
         println("HERÓI")
     }
