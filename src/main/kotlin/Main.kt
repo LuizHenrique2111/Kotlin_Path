@@ -1,20 +1,21 @@
 fun main() {
 
-    val spiderman = Hero("Spiderman", "vai teia")
-    println(spiderman.toString())
-    println(Database.name)
-    println(Database.heroLogged?.name)
+    val bluePen = Musician()
+    bluePen.desc()
 
-    login(spiderman)
-    println(Database.heroLogged?.name)
-
-    val deadpool = Hero("Deadpool", "Imorrível")
-    println(deadpool.toString())
-
-    login(deadpool)
-    println(Database.heroLogged?.name)
+    val guitar = Musician.Guitar()
+    guitar.desc()
 }
 
-fun login(hero: Hero) {
-    Database.heroLogged = hero
+// Nested Class
+class Musician {
+
+    var style: String = "Rock"
+
+    fun desc() = println("Meu estilo é $style")
+
+    class Guitar() {
+        var strings = 6
+        fun desc() = println("Tocando em uma guitarra com $strings cordas")
+    }
 }
