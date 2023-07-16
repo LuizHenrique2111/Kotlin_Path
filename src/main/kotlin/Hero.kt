@@ -1,8 +1,7 @@
 class Hero(var name: String, var power: String) {
 
-    lateinit var age: Integer
 
-    companion object { //Compartilha entre todas as CLASSES tudo que for colocado em seu escopo
+    /*companion object { //Compartilha entre todas as CLASSES tudo que for colocado em seu escopo
         const val MAX_HEROS = 15
 
     }
@@ -13,7 +12,7 @@ class Hero(var name: String, var power: String) {
         if (name == "Batman") {
             println("Eu sou o mais preparado")
         }
-    }
+    }*/
 
     constructor(power: String) : this("Batman", power) {
         println("CONSTRUCTOR 2")

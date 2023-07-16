@@ -1,27 +1,24 @@
 fun main() {
 
-    println(CreditCard.MASTER.ordinal)
+    val hero1 = Hero("Wolverine", "Garras")
 
-    val creditCardAPIName = "elo"
-
-    val card = CreditCard.valueOf(creditCardAPIName.uppercase())
-
-    println(card)
-
-    if (card == CreditCard.ELO) {
-        println("DESCONTO de ${card.descount}%")
-    } else {
-        println("MAIS DESCONTO")
+    when(hero1.name) {
+        "Batman" -> {
+            println("Eu sou o mais preparado")
+        }
+        "Wolverine" -> {
+            println("Maldição aaaaaaaa")
+        }
+        "Spiderman" -> {
+            println("Vai teia")
+        }
+        else -> println("Não foi informado nenhum dos heróis esperados")
     }
 
-    println(CreditCard.values().size)
+    val hero2 = Hero("Batman", "Rico")
 
-}
-
-enum class CreditCard(val label: String, val descount: Int) {
-
-    VISA("Visa", 10),
-    MASTER("Mastercard", 15),
-    ELO("Elo", 7),
-    AMEX("American Express", 12)
+    when {
+        (hero2.name == "Superman") -> println("POwerfulll")
+        else -> println("Preparado")
+    }
 }
