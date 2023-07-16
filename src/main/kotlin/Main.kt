@@ -15,10 +15,11 @@ fun main() {
         else -> println("Não foi informado nenhum dos heróis esperados")
     }
 
-    val hero2 = Hero("Batman", "Rico")
+    val hero2 = Hero("Superman", "Rico")
 
-    when {
-        (hero2.name == "Superman") -> println("POwerfulll")
-        else -> println("Preparado")
+    val heros = when {
+        (hero2.name == "Superman") -> "POwerfulll"
+        else -> "Preparado"
     }
+    println(heros)
 }
