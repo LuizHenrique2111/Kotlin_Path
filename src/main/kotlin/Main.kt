@@ -1,25 +1,25 @@
 fun main() {
 
-    val hero1 = Hero("Wolverine", "Garras")
+    val user1 = User("João", true)
+    val user2 = User("João", true)
 
-    when(hero1.name) {
-        "Batman" -> {
-            println("Eu sou o mais preparado")
-        }
-        "Wolverine" -> {
-            println("Maldição aaaaaaaa")
-        }
-        "Spiderman" -> {
-            println("Vai teia")
-        }
-        else -> println("Não foi informado nenhum dos heróis esperados")
-    }
+    println(user1 == user2)
+    println(user1)
+    println(user2)
 
-    val hero2 = Hero("Superman", "Rico")
+    val user3 = User1("João", true)
+    val user4 = User1("João", true)
 
-    val heros = when {
-        (hero2.name == "Superman") -> "POwerfulll"
-        else -> "Preparado"
-    }
-    println(heros)
+    println(user3 == user4)
+    println(user3)
+    println(user4)
+
+}
+
+class User(var name: String, var isAdmini: Boolean) {
+
+}
+
+data class User1(var name: String, var isAdmini: Boolean) {
+
 }
