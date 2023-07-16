@@ -1,25 +1,15 @@
 fun main() {
 
-    val user1 = User("João", true)
-    val user2 = User("João", true)
+    val user1 = User("João", "Cesar", true)
 
-    println(user1 == user2)
-    println(user1)
-    println(user2)
+    println(user1.component1())
 
-    val user3 = User1("João", true)
-    val user4 = User1("João", true)
-
-    println(user3 == user4)
-    println(user3)
-    println(user4)
+    val (lastName, name, isAdmin) = user1 // Segue o construtor padrão da classe
+    println("Meu nome é $name $lastName, sou adm? $isAdmin")
 
 }
 
-class User(var name: String, var isAdmini: Boolean) {
+data class User(var name: String, var lastName: String, var isAdmin: Boolean) {
 
-}
-
-data class User1(var name: String, var isAdmini: Boolean) {
-
+    fun desc(): String = "Meu nom é $name"
 }
