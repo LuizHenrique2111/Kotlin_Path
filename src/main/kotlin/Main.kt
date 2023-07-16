@@ -1,21 +1,27 @@
 fun main() {
 
-    val bluePen = Musician()
-    bluePen.desc()
+    println(CreditCard.MASTER.ordinal)
 
-    val guitar = bluePen.Guitar()
-    guitar.desc()
+    val creditCardAPIName = "elo"
+
+    val card = CreditCard.valueOf(creditCardAPIName.uppercase())
+
+    println(card)
+
+    if (card == CreditCard.ELO) {
+        println("DESCONTO de ${card.descount}%")
+    } else {
+        println("MAIS DESCONTO")
+    }
+
+    println(CreditCard.values().size)
+
 }
 
-// Nested Class
-class Musician {
+enum class CreditCard(val label: String, val descount: Int) {
 
-    var style: String = "Rock"
-
-    fun desc() = println("Meu estilo é $style")
-
-    inner class Guitar() {
-        var strings = 6
-        fun desc() = println("Tocando em uma guitarra com $strings cordas, e o estilo é $style")
-    }
+    VISA("Visa", 10),
+    MASTER("Mastercard", 15),
+    ELO("Elo", 7),
+    AMEX("American Express", 12)
 }
