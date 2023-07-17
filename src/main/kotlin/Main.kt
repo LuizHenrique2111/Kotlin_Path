@@ -1,23 +1,19 @@
 fun main() {
 
-    // val cordinates = Pair("Pedro", 50)
-    val cordinates = "Pedro" to 50
-    
-    println(cordinates.first)
-    println(cordinates.second)
+    val t = Teacher("Tulio", "Rua Einstein")
+    println(t.desc())
 
-    val triple = Triple(200, 20, 120)
-
-    println(triple.first)
-    println(triple.second)
-    println(triple.third)
+    val s = Student(20015, "Tulio", "Rua Einstein")
+    println(s.desc())
 }
 
-data class Cordinate(var x: Int, var y: Int)
-
-data class Game3d(var x: Int, var y: Int, var z: Int)
-
-data class User(var name: String, var lastName: String, var isAdmin: Boolean) {
-
-    fun desc(): String = "Meu nom é $name"
+open class Person(var name: String, var address: String) {
+    fun desc() = "Meu nome é $name e meu endereço é $address"
 }
+
+class Teacher(name: String, address: String) : Person(name, address) {
+}
+
+class Student(var iD: Int, name: String, address: String) : Person(name, address) {
+}
+
