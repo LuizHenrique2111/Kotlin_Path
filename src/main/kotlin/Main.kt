@@ -1,13 +1,21 @@
 fun main() {
 
-    val user1 = User("João", "Cesar", true)
+    // val cordinates = Pair("Pedro", 50)
+    val cordinates = "Pedro" to 50
+    
+    println(cordinates.first)
+    println(cordinates.second)
 
-    println(user1.component1())
+    val triple = Triple(200, 20, 120)
 
-    val (lastName, name, isAdmin) = user1 // Segue o construtor padrão da classe
-    println("Meu nome é $name $lastName, sou adm? $isAdmin")
-
+    println(triple.first)
+    println(triple.second)
+    println(triple.third)
 }
+
+data class Cordinate(var x: Int, var y: Int)
+
+data class Game3d(var x: Int, var y: Int, var z: Int)
 
 data class User(var name: String, var lastName: String, var isAdmin: Boolean) {
 
