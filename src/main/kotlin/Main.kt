@@ -1,14 +1,41 @@
 fun main() {
 
-    val car1 = Siena("Siena", "FIAT")
-    car1.power()
-    car1.toDrive(Driver("Marcos"))
+    val btn = Button("Salvar", 0XFFF0000, Pair(20, 30))
+    btn.render()
 
-    val car2 = Corolla("Corolla", "Toyota")
-    car2.power()
-    car2.toDrive(Driver("Rogerio"))
+    val link = Link("Entrar", Pair(15, 20))
+    link.render()
 
-    val car3 = Civic("Civic", "Honda")
-    car3.power()
-    car3.toDrive(Driver("José"))
+}
+
+abstract class Component {
+    abstract fun position() : Pair<Int, Int>
+
+    open fun render() {
+        println("tela: ${position().first} por ${position().second}")
+    }
+}
+
+abstract class Text(val text: String) : Component() {
+    override fun render() {
+        super.render()
+        println("Desenhando o texto: $text")
+    }
+}
+
+class Button(text: String, val backgroundColor: Int, val pos: Pair<Int, Int>) : Text(text) {
+    override fun position(): Pair<Int, Int> {
+        return pos
+    }
+
+    override fun render() {
+        super.render()
+        println("Pintando o fundo de $backgroundColor")
+    }
+}
+
+class Link(text: String, val pos: Pair<Int, Int>) : Text(text) {
+    override fun position(): Pair<Int, Int> {
+        return pos
+    }
 }
