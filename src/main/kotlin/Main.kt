@@ -1,14 +1,26 @@
 fun main() {
 
-    val items = arrayOf(1, "Leandro", 3, 4, 5.10)
-    items.forEach {
-        println(it)
-    }
+    val cars = arrayOf(
+        Car("Siena", "Fiat"),
+        Car("Civic", "Honda"),
+        Car("911", "Porsche")
+    )
+    cars.forEach { println(it) }
 
-    val num = intArrayOf(1, 2, 3, 4, 5)
-    num.forEach { number ->
-        println(number)
-    }
+    println("--------------------")
+
+    val newList = cars.plus(Car("Rampage", "Dogde"))
+
+    newList.forEach { println(it) }
+
+    println("--------------------")
+
+    println(newList[3])
+
+    println("--------------------")
+
+    newList[0] = Car("Onix", "Chevrolet")
+    newList.forEach { println(it) }
 
 }
 

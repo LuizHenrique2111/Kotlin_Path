@@ -1,6 +1,9 @@
-abstract class Car(var name: String, var brand: String) {
+data class Car(var name: String, var brand: String) {
 
-    abstract fun power(): Boolean
+    fun power(): Boolean {
+        println("O carro $name é da marca $brand e tem 200 cavalos de potência")
+        return true
+    }
 
     fun toDrive(driver: Driver) {
         if(power()) {
@@ -17,7 +20,7 @@ abstract class Car(var name: String, var brand: String) {
 
 }
 
-class Siena(name: String, brand: String) : Car(name, brand) {
+/*class Siena(name: String, brand: String) : Car(name, brand) {
     override fun power(): Boolean {
         println("O carro $name é da marca $brand e tem 200 cavalos de potência")
         return true
@@ -36,6 +39,6 @@ class Civic(name: String, brand: String) : Car(name, brand) {
         println("O carro $name é da marca $brand e tem 350 cavalos de potência")
         return true
     }
-}
+}*/
 
 class Driver(val name: String)
