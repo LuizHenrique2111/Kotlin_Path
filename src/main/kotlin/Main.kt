@@ -1,26 +1,21 @@
 fun main() {
 
-    val cars = arrayOf(
+    val cars = listOf<Car>(
         Car("Siena", "Fiat"),
         Car("Civic", "Honda"),
         Car("911", "Porsche")
     )
     cars.forEach { println(it) }
 
-    println("--------------------")
+    println()
 
-    val newList = cars.plus(Car("Rampage", "Dogde"))
+    println(cars.firstOrNull())
 
-    newList.forEach { println(it) }
+    println(cars.lastOrNull())
 
-    println("--------------------")
+    println()
 
-    println(newList[3])
-
-    println("--------------------")
-
-    newList[0] = Car("Onix", "Chevrolet")
-    newList.forEach { println(it) }
+    val emptyList = emptyList<Car?>()
 
 }
 
