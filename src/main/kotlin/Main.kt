@@ -1,18 +1,27 @@
 fun main() {
 
-    val a = mutableListOf("Jorge", "Maria")
-    val b = listOf("João", "Fadua", "Henrique")
+    val cars = mutableListOf(
+        Car("Siena", "Fiat"),
+        Car("Renagede", "Jeep")
+    )
 
-    b.filterTo(a, { it.contains("u") && it.contains("a")})
-    println(a)
+    val filtered = cars.filter { car ->
+        car.name.lowercase().contains("de")
+    }
+    filtered.forEach { println(it) }
 
-    println()
+    println("----------------------------")
 
-    val c = listOf("A", "B")
-    val d = listOf("E", "F")
-    val all = listOf(c, d)
-    println(all)
-    println(all.flatten())
+    val filteredNot = cars.filterNot { car ->
+        car.name.lowercase().contains("si")
+    }
+    filteredNot.forEach { println(it) }
 
+    println("----------------------------")
+
+    val objFiltered = cars.firstOrNull() { it.name == "Siena" }
+    val objFiltered2 = cars.firstOrNull() { it.name == "Renegade" }
+    println(objFiltered)
+    println(objFiltered2)
 }
 
