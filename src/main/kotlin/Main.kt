@@ -1,27 +1,13 @@
 fun main() {
 
-    val cars = mutableListOf(
-        Car("Siena", "Fiat"),
-        Car("Renagede", "Jeep")
+    val cars = setOf(
+        "Jorge",
+        "Jorge",
+        "Matheus",
+        "Bruce"
     )
 
-    val filtered = cars.filter { car ->
-        car.name.lowercase().contains("de")
+    cars.forEach {
+        println(it) // Só vai imprimir apenas uma vez o conteúdo repetido
     }
-    filtered.forEach { println(it) }
-
-    println("----------------------------")
-
-    val filteredNot = cars.filterNot { car ->
-        car.name.lowercase().contains("si")
-    }
-    filteredNot.forEach { println(it) }
-
-    println("----------------------------")
-
-    val objFiltered = cars.firstOrNull() { it.name == "Siena" }
-    val objFiltered2 = cars.firstOrNull() { it.name == "Renegade" }
-    println(objFiltered)
-    println(objFiltered2)
 }
-
