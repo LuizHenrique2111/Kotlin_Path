@@ -1,7 +1,7 @@
-data class Car(var name: String, var brand: String) {
+data class Car(var name: String, var hasPower: Boolean) {
 
     fun power(): Boolean {
-        println("O carro $name é da marca $brand e tem 200 cavalos de potência")
+        println("O carro $name é da marca $hasPower e tem 200 cavalos de potência")
         return true
     }
 
