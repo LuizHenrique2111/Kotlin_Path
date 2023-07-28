@@ -6,19 +6,22 @@ fun main() {
         Car("Ford Ka", false)
     )
 
-    calc(6, 7, ::sum)
+    /*calc(6, 7, ::sum)
     calc(6, 4, ::minus)
     calc(8, 2, ::divide)
 
     calc(8, 2) { a,b ->
         a * b
-    }
+    }*/
 
-    val newCars = cars.filter(::filtro)
-    newCars.forEach {
+    cars.forEach {
         println(it)
     }
 
+    val listNames = cars.map { it.name.uppercase() }
+                        .filter { it.contains("A") }
+
+    listNames.forEach { println(it) }
 }
 
 fun sum(x: Int, y: Int): Int {
