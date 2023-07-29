@@ -1,38 +1,47 @@
 fun main() {
 
-    val numbers = listOf(1, 2, 3, 4, 5, 6)
-    val numbers2 = listOf(1, 2, 4, 8, 16, 32)
-    val result = numbers.union(numbers2)
+    val products = mutableMapOf(
+        "Android" to "Google",
+        "iOS" to "Apple",
+        "Windows" to "Microsoft"
+    )
 
-    /*result.forEachIndexed { index, el ->
-        println("index: $index, id: $el")
-    }*/
+//    val res = products["iOS"]
+//    val res = products.getOrDefault("Android2", "Não existe empresa com este SO")
+//    val res = products.getOrElse("Andoid2") {
+//        println("você envia para o servidor")
+//        "Não existe empresa com este SO"
+//    }
+//    println(res)
 
-    for (number in numbers) {
-        println(number)
-    }
+//    val hasWindows = products.containsKey("Windows")
+//    if(hasWindows) {
+//        println("Faça algo")
+//    }
 
+    println(products.keys)
+    println(products.values)
+
+    products["iOS"] = "Amazon"
     println()
 
-    for(index in 0 .. 4) {
-        println("index: $index, id: ${numbers[index]}")
-    }
+    println(products.keys)
+    println(products.values)
 
+    products.remove("Windows")
     println()
 
-    for(index in 0 until 4) {
-        println("index: $index, id: ${numbers[index]}")
-    }
+    println(products.keys)
+    println(products.values)
 
+    products.clear()
     println()
 
-    for(i in 0 until 20 step 2) {
-        println("N#$i")
+    println(products.keys)
+    println(products.values)
+
+    if (products.isEmpty()) {
+        println("Não existem produtos cadastrados.")
     }
 
-    println()
-
-    for(i in 400 downTo  0 step 50) {
-        println("N#$i")
-    }
 }
