@@ -19,29 +19,36 @@ fun main() {
 //        println("Faça algo")
 //    }
 
-    println(products.keys)
-    println(products.values)
+//    println(products.keys)
+//    println(products.values)
+//
+//    products["iOS"] = "Amazon"
+//    println()
+//
+//    println(products.keys)
+//    println(products.values)
+//
+//    products.remove("Windows")
+//    println()
+//
+//    println(products.keys)
+//    println(products.values)
+//
+//    products.clear()
+//    println()
+//
+//    println(products.keys)
+//    println(products.values)
+//
+//    if (products.isEmpty()) {
+//        println("Não existem produtos cadastrados.")
+//    }
 
-    products["iOS"] = "Amazon"
-    println()
+//    val r = products.filter { it.value.contains("e") }
+//                    .map { it.value.substring(0, 1) }
+//    println(r)
 
-    println(products.keys)
-    println(products.values)
-
-    products.remove("Windows")
-    println()
-
-    println(products.keys)
-    println(products.values)
-
-    products.clear()
-    println()
-
-    println(products.keys)
-    println(products.values)
-
-    if (products.isEmpty()) {
-        println("Não existem produtos cadastrados.")
-    }
+    val cars = Car.createCars(10)
+    println(cars.map { it.brand.uppercase() })
 
 }
