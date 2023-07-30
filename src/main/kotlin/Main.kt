@@ -8,13 +8,16 @@ fun main() {
 
     val obj: Any = getObject(2)
     println(obj)
+    if (obj is String) { // Só consegue manipular os atributos do tipo utilizando verificações
+        println(obj.length)
+    }
 
 }
 
 fun getObject(value: Int): Any {
     return when(value) {
         1 -> 1
-        2 -> "Class"
+        2 -> "Aula"
         3 -> true
         else -> 1.0
     }
