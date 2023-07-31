@@ -5,15 +5,24 @@ fun main() {
 //    val cast = obj as String
 //    println(cast.length)
 
-    divide("10","0")
+    showView()
 }
 
-fun divide(x: String, y: String) {
+fun showView() {
     try {
-        println(x.toInt() / y.toInt())
-    } catch (e: Exception) {
-        println("Formulário Invalido")
+        val res = applyDiscount(220.00, 52)
+        println(res)
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
     }
+}
+
+fun applyDiscount(price: Double, value: Int): Double {
+    if (value > 50) {
+        throw IllegalArgumentException("Desconto muito alto!")
+    }
+    val discount = value * price / 100
+    return price - discount
 }
 
 fun getObject(value: Int): Any {
