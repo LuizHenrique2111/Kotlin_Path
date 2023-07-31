@@ -1,5 +1,3 @@
-import java.lang.NumberFormatException
-
 fun main() {
 
     val obj: Any = getObject(3)
@@ -7,16 +5,14 @@ fun main() {
 //    val cast = obj as String
 //    println(cast.length)
 
-    divide("a","3")
+    divide("10","0")
 }
 
 fun divide(x: String, y: String) {
     try {
         println(x.toInt() / y.toInt())
-    } catch (e: NumberFormatException) {
-      println("Foi digitado um texto ao invez de um número inteiro.")
-    } catch (e: ArithmeticException) {
-        println("Divisão por zero invalida.")
+    } catch (e: Exception) {
+        println("Formulário Invalido")
     }
 }
 
