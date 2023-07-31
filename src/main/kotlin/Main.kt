@@ -1,13 +1,23 @@
+import java.lang.NumberFormatException
+
 fun main() {
 
-    val obj: Any = getObject(2)
-//    if (obj is String) { // Só consegue manipular os atributos do tipo utilizando verificações
-//        println(obj.length)
-//    }
+    val obj: Any = getObject(3)
 
-    val cast = obj as String // Consigo manipular fazendo a conversão(casting)
-    println(cast.length)
+//    val cast = obj as String
+//    println(cast.length)
 
+    divide("a","3")
+}
+
+fun divide(x: String, y: String) {
+    try {
+        println(x.toInt() / y.toInt())
+    } catch (e: NumberFormatException) {
+      println("Foi digitado um texto ao invez de um número inteiro.")
+    } catch (e: ArithmeticException) {
+        println("Divisão por zero invalida.")
+    }
 }
 
 fun getObject(value: Int): Any {
