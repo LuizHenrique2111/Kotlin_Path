@@ -1,35 +1,42 @@
+fun buscarInstrumento(): Playable {
+    return Violino()
+}
+
 fun main() {
 
-    val obj: Any = getObject(3)
+    val musico1 = Musician("Tiago")
+    musico1.playable = buscarInstrumento()
+    musico1.startPlay()
 
-//    val cast = obj as String
-//    println(cast.length)
-
-    showView()
 }
 
-fun showView() {
-    try {
-        val res = applyDiscount(220.00, 52)
-        println(res)
-    } catch (e: IllegalArgumentException) {
-        println(e.message)
+class Musician(val nome: String) {
+
+    lateinit var playable: Playable
+
+    fun startPlay() {
+        playable.play()
     }
 }
 
-fun applyDiscount(price: Double, value: Int): Double {
-    if (value > 50) {
-        throw IllegalArgumentException("Desconto muito alto!")
-    }
-    val discount = value * price / 100
-    return price - discount
+interface Playable {
+    fun play()
 }
 
-fun getObject(value: Int): Any {
-    return when(value) {
-        1 -> 1
-        2 -> "Aula"
-        3 -> true
-        else -> 1.0
+class Guitar: Playable {
+    override fun play() {
+        println("tocando guitarra")
+    }
+}
+
+class Bateria: Playable {
+    override fun play() {
+        println("tocando bateria")
+    }
+}
+
+class Violino:  Playable {
+    override fun play() {
+        println("tocando violino")
     }
 }
