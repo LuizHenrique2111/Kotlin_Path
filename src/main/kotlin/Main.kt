@@ -1,77 +1,57 @@
-fun buscarInstrumento(): Playable {
-    return Violino()
-}
+import java.io.FileWriter
+import java.io.IOException
 
-fun getMenu(): Menu {
-    return burguerKing()
+fun buscarSistemaDeLog(): LoggerGenerico {
+    return SistemaArquivo()
 }
 
 fun main() {
 
-    val musico1 = Musician("Tiago")
-    musico1.playable = buscarInstrumento()
-    //musico1.startPlay()
-    musico1.menu = getMenu()
-    musico1.fazerPedido()
+    val userA = Usuario(buscarSistemaDeLog())
+
+    userA.criarPublicacao()
+
+    val userB = Usuario(buscarSistemaDeLog())
+
+    userB.criarPublicacao()
 
 }
 
-class Musician(val nome: String) {
-
-    lateinit var playable: Playable
-    lateinit var menu: Menu
-
-    fun startPlay() {
-        playable.play()
-    }
-
-    fun fazerPedido() {
-        val combo = menu.comboDoDia()
-        println(combo)
-    }
-
+interface LoggerGenerico {
+    fun print(message: String)
 }
 
-interface Menu {
-    fun comboDoDia(): String
-}
-
-class mcDonald: Menu {
-    override fun comboDoDia(): String {
-        return "BigMac"
+class SistemaConsole: LoggerGenerico {
+    override fun print(message: String) {
+        println(message)
     }
 }
 
-class burguerKing: Menu {
-    override fun comboDoDia(): String {
-        return "Whopper"
+class SistemaArquivo: LoggerGenerico {
+    override fun print(message: String) {
+        val path = "C:/Users/hp"
+        try {
+            val fw = FileWriter(path, true)
+            fw.write(message)
+            fw.write("\n")
+            fw.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 }
 
-class excaliBurguer: Menu {
-    override fun comboDoDia(): String {
-        return "São Critovão"
+class Usuario(val logger: LoggerGenerico) {
+
+    init{
+        log("Usuário criado!")
     }
-}
 
-interface Playable {
-    fun play()
-}
-
-class Guitar: Playable {
-    override fun play() {
-        println("tocando guitarra")
+    fun criarPublicacao() {
+        log("Novo post criado!")
     }
-}
 
-class Bateria: Playable {
-    override fun play() {
-        println("tocando bateria")
-    }
-}
-
-class Violino:  Playable {
-    override fun play() {
-        println("tocando violino")
+    fun log(mensagem: String) {
+        logger.print(mensagem)
     }
 }
