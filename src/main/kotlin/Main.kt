@@ -1,57 +1,58 @@
-import java.io.FileWriter
-import java.io.IOException
-
-fun buscarSistemaDeLog(): LoggerGenerico {
-    return SistemaArquivo()
-}
-
 fun main() {
+    val tela = TelaPrincipal()
+    val linkEntrar = Link("Entrar", 10 to 20)
+    println("antes do click no link")
+    linkEntrar.clickListener = tela
+    linkEntrar.click()
+    println("depois do click no link")
+}
 
-    val userA = Usuario(buscarSistemaDeLog())
-
-    userA.criarPublicacao()
-
-    val userB = Usuario(buscarSistemaDeLog())
-
-    userB.criarPublicacao()
+class TelaPrincipal: OnClickListener {
+    override fun onClick() {
+        println("Tela Principal recebeu o evento de click de alguém")
+    }
 
 }
 
-interface LoggerGenerico {
-    fun print(message: String)
-}
+abstract class Component {
+    abstract fun position(): Pair<Int, Int>
 
-class SistemaConsole: LoggerGenerico {
-    override fun print(message: String) {
-        println(message)
+    open fun render() {
+        println("desenhando a tela")
     }
 }
 
-class SistemaArquivo: LoggerGenerico {
-    override fun print(message: String) {
-        val path = "C:/Users/hp"
-        try {
-            val fw = FileWriter(path, true)
-            fw.write(message)
-            fw.write("\n")
-            fw.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
+abstract class Text(val text: String, val pos: Pair<Int, Int>) : Component() {
+    override fun render() {
+        super.render()
+        println("desenhando o text $text")
     }
 }
 
-class Usuario(val logger: LoggerGenerico) {
-
-    init{
-        log("Usuário criado!")
+class Btn(text: String, val backgroundColor: Int, pos: Pair<Int, Int>) : Text(text, pos) {
+    override fun position(): Pair<Int, Int> {
+        return pos
     }
 
-    fun criarPublicacao() {
-        log("Novo post criado!")
+    override fun render() {
+        super.render()
+        println("desenhando a cor $backgroundColor")
+    }
+}
+
+class Link(text: String, pos: Pair<Int, Int>) : Text(text, pos) {
+
+    lateinit var clickListener: OnClickListener
+
+    override fun position(): Pair<Int, Int> {
+        return pos
     }
 
-    fun log(mensagem: String) {
-        logger.print(mensagem)
+    fun click() {
+        clickListener.onClick()
     }
+}
+
+interface OnClickListener {
+    fun onClick()
 }
